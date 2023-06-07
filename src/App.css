@@ -1,8 +1,3 @@
-h1,
-p {
-	font-family: Lato;
-}
-
 html,
 body {
 	margin: 0;
@@ -19,3 +14,37 @@ body {
 	align-items: center;
 	margin: 5px;
 }
+.jumbotron {
+	height: 100vh;
+	margin: 0;
+  }
+  
+  .d-flex {
+	display: flex;
+  }
+  
+  .flex-column {
+	flex-direction: column;
+  }
+  
+  .align-items-stretch {
+	align-items: stretch;
+  }
+  
+  .align-items-center {
+	align-items: center;
+  }
+  
+  .justify-content-center {
+	justify-content: center;
+  }
+  
+  #drum-machine {
+	/* Add any additional styles for the #drum-machine element */
+  }
+  
+  #display {
+	text-align: center;
+	/* Add any additional styles for the #display element */
+  }
+ 

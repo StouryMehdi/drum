@@ -38,7 +38,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="jumbotron jumbotron-fluid h-100 m-0">
+      <div className="">
         <div className="">
           <div className="">
             <div id="drum-machine">
@@ -50,7 +50,7 @@ class App extends Component {
                   <button
                     type="button"
                     id="Heater-1"
-                    className="col drum-pad btn btn-outline-info"
+                    className=""
                   >
                     <audio
                       className="clip"
@@ -62,7 +62,7 @@ class App extends Component {
                   <button
                     type="button"
                     id="Heater-2"
-                    className="col drum-pad btn btn-outline-info"
+                    className=""
                   >
                     <audio
                       className="clip"
@@ -74,7 +74,7 @@ class App extends Component {
                   <button
                     type="button"
                     id="Heater-3"
-                    className="col drum-pad btn btn-outline-info"
+                    className=""
                   >
                     <audio
                       className="clip"
@@ -88,7 +88,7 @@ class App extends Component {
                   <button
                     type="button"
                     id="Heater-4"
-                    className="col drum-pad btn btn-outline-info"
+                    className=""
                   >
                     <audio
                       className="clip"
@@ -100,7 +100,7 @@ class App extends Component {
                   <button
                     type="button"
                     id="Clap"
-                    className="col drum-pad btn btn-outline-info"
+                    className=""
                   >
                     <audio
                       className="clip"
@@ -112,7 +112,7 @@ class App extends Component {
                   <button
                     type="button"
                     id="Open-HH"
-                    className="col drum-pad btn btn-outline-info"
+                    className=""
                   >
                     <audio
                       className="clip"
@@ -126,7 +126,7 @@ class App extends Component {
                   <button
                     id="Kick-n'-Hat"
                     type="button"
-                    className="col drum-pad btn btn-outline-info"
+                    className=""
                   >
                     <audio
                       className="clip"
@@ -138,7 +138,7 @@ class App extends Component {
                   <button
                     id="Kick"
                     type="button"
-                    className="col drum-pad btn btn-outline-info"
+                    className=""
                   >
                     <audio
                       className="clip"
@@ -150,7 +150,7 @@ class App extends Component {
                   <button
                     id="Closed-HH"
                     type="button"
-                    className="col drum-pad btn btn-outline-info"
+                    className=""
                   >
                     <audio
                       className="clip"
