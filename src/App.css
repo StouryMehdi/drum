@@ -1,10 +1,10 @@
-html,
+/* html,
 body {
 	margin: 0;
 	padding: 0;
 	min-height: 100%;
-	height: 100%;
-}
+	height: 300px;
+} */
 
 .drum-pad {
 	width: 100px;
@@ -13,38 +13,22 @@ body {
 	justify-content: center;
 	align-items: center;
 	margin: 5px;
-}
-.jumbotron {
-	height: 100vh;
-	margin: 0;
   }
-  
-  .d-flex {
+
+
+  .container{
 	display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  
-  .flex-column {
-	flex-direction: column;
-  }
-  
-  .align-items-stretch {
-	align-items: stretch;
-  }
-  
-  .align-items-center {
+
+  #display{
+	margin: 2rem 15rem;
+	height: 50px;
+	display: flex;
 	align-items: center;
+	justify-content:center;
+	border-radius: 10px;
+	border: 1px solid red;
+	
   }
-  
-  .justify-content-center {
-	justify-content: center;
-  }
-  
-  #drum-machine {
-	/* Add any additional styles for the #drum-machine element */
-  }
-  
-  #display {
-	text-align: center;
-	/* Add any additional styles for the #display element */
-  }
- 
