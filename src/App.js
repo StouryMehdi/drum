@@ -6,13 +6,25 @@ function App() {
   const [lastAudio, setLastAudio] = useState('');
   const [soundLevel, setSoundLevel] = useState(100);
 
+  const audioDescriptions = {
+    'Heater-1': 'Heater 1',
+    'Heater-2': 'Heater 2',
+    'Heater-3': 'Heater 3',
+    'Heater-4': 'Heater 4',
+    Clap: 'Clap',
+    'Open-HH': 'Open HH',
+    "Kick-n'-Hat": "Kick n' Hat",
+    Kick: 'Kick',
+    'Closed-HH': 'Closed HH',
+  };
+
   useEffect(() => {
     const drumPads = document.querySelectorAll('.drum-pad');
     drumPads.forEach((drumPad) => {
       const listener = async (event) => {
         const button = event.target;
         const audio = button.querySelector('audio');
-        await playAudio(audio);
+        await playAudio(audio, button.id);
       };
       drumPad.addEventListener('click', listener);
     });
@@ -21,7 +33,7 @@ function App() {
       const key = event.key.toUpperCase();
       const audio = document.getElementById(key);
       if (audio instanceof HTMLAudioElement) {
-        await playAudio(audio);
+        await playAudio(audio, key);
       }
     });
   }, []);
@@ -31,18 +43,18 @@ function App() {
     setSoundLevel(level);
   };
 
-  const playAudio = async (audio) => {
+  const playAudio = async (audio, id) => {
     try {
       if (soundLevel === 0) {
         // Set volume to 0 if sound level is 0
-        audio.volume = 0;
+        audio.pause();
+        audio.currentTime = 0;
       } else {
         audio.volume = soundLevel / 100; // Adjust volume based on sound level
-      }
 
-      await audio.play();
-      const button = audio.parentElement;
-      setLastAudio(button.id);
+        await audio.play();
+        setLastAudio(audioDescriptions[id]);
+      }
     } catch (error) {
       console.error('Audio playback error:', error);
     }
