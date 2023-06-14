@@ -185,15 +185,17 @@ function App() {
               </div>
             </div>
           </div>
+        <div className="sound-level">Sound Level: {soundLevel}
         </div>
-        <div className="sound-level">Sound Level: {soundLevel}</div>
         <input
           type="range"
           min="0"
           max="100"
           value={soundLevel}
           onChange={handleSoundLevelChange}
+          className="sound-range"
         />
+        </div>
       </div>
     </div>
   );
