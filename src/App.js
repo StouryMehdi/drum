@@ -1,39 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { createRoot } from 'react-dom';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { createRoot } from "react-dom";
+import "./App.css";
 
 function App() {
-  const [lastAudio, setLastAudio] = useState('');
+  const [lastAudio, setLastAudio] = useState("");
   const [soundLevel, setSoundLevel] = useState(100);
 
-  const audioDescriptions = {
-    'Heater-1': 'Heater 1',
-    'Heater-2': 'Heater 2',
-    'Heater-3': 'Heater 3',
-    'Heater-4': 'Heater 4',
-    Clap: 'Clap',
-    'Open-HH': 'Open HH',
-    "Kick-n'-Hat": "Kick n' Hat",
-    Kick: 'Kick',
-    'Closed-HH': 'Closed HH',
-  };
-
   useEffect(() => {
-    const drumPads = document.querySelectorAll('.drum-pad');
+    const drumPads = document.querySelectorAll(".drum-pad");
     drumPads.forEach((drumPad) => {
       const listener = async (event) => {
         const button = event.target;
-        const audio = button.querySelector('audio');
-        await playAudio(audio, button.id);
+        const audio = button.querySelector("audio");
+        await playAudio(audio);
       };
-      drumPad.addEventListener('click', listener);
+      drumPad.addEventListener("click", listener);
     });
 
-    document.addEventListener('keydown', async (event) => {
+    document.addEventListener("keydown", async (event) => {
       const key = event.key.toUpperCase();
       const audio = document.getElementById(key);
       if (audio instanceof HTMLAudioElement) {
-        await playAudio(audio, key);
+        await playAudio(audio);
       }
     });
   }, []);
@@ -43,20 +31,19 @@ function App() {
     setSoundLevel(level);
   };
 
-  const playAudio = async (audio, id) => {
+  const playAudio = async (audio) => {
     try {
       if (soundLevel === 0) {
-        // Set volume to 0 if sound level is 0
         audio.pause();
         audio.currentTime = 0;
       } else {
-        audio.volume = soundLevel / 100; // Adjust volume based on sound level
-
+        audio.volume = soundLevel / 100;
         await audio.play();
-        setLastAudio(audioDescriptions[id]);
+        const button = audio.parentElement;
+        setLastAudio(button.id);
       }
     } catch (error) {
-      console.error('Audio playback error:', error);
+      console.error("Audio playback error:", error);
     }
   };
 
@@ -185,23 +172,23 @@ function App() {
               </div>
             </div>
           </div>
-        <div className="sound-level">Sound Level: {soundLevel}
-        </div>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value={soundLevel}
-          onChange={handleSoundLevelChange}
-          className="sound-range"
-        />
+          <div className="sound">
+          <div className="sound-level">Sound Level: {soundLevel}</div>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={soundLevel}
+              onChange={handleSoundLevelChange}
+            />
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-const root = document.getElementById('root');
+const root = document.getElementById("root");
 const app = (
   <React.StrictMode>
     <App />

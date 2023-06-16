@@ -40,8 +40,9 @@ body {
   }
 
 
-  .sound-range{
+  .sound{
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content:center;
-  }
+  } 
