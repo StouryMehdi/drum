@@ -24,7 +24,7 @@ function App() {
         await playAudio(audio);
       }
     });
-  }, []);
+  });
 
   const handleSoundLevelChange = (e) => {
     const level = parseInt(e.target.value);
